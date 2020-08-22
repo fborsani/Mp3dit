@@ -1,8 +1,8 @@
 import os
-
-import track as t
 from mutagen.id3 import ID3, TIT2, TALB, TPE1, COMM, TDRC, TRCK
 from mutagen.id3 import ID3NoHeaderError
+
+import track as t
 
 
 def expandPath(folderPath: str):

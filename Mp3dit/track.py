@@ -9,7 +9,7 @@ class Track:
         for key in self.data.keys():
             if (not preserve or (preserve and self.data[key] == "")) and \
                     (writeEmpty or (not writeEmpty and dataDict[key] != "")) and \
-                    (not preserveTrack and dataDict[key] == "track"):
+                    (not preserveTrack or (preserveTrack and dataDict[key] == "track")):
                 self.data[key] = dataDict[key]
 
     def setTrack(self, tr: str):

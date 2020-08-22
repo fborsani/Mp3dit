@@ -1,5 +1,7 @@
 import random
 import sys
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QTableWidgetItem, QFileDialog, QApplication, QMainWindow
 
 import filenameRegex as rgx
 import utils as u
@@ -21,7 +23,7 @@ class NumericTableWidgetItem (QTableWidgetItem):
             else:
                 return int(myData) < int(otherData)
         else:
-            return Qt.QtGui.QTableWidgetItem.__lt__(self, other)
+            return QTableWidgetItem.__lt__(self, other)
 
 
 class MainWindow(QMainWindow):
@@ -171,8 +173,8 @@ class MainWindow(QMainWindow):
 
         self.ui.btnSelectAll.pressed.connect(lambda: self.ui.tableItems.selectAll())
         self.ui.btnDeselect.pressed.connect(lambda: self.ui.tableItems.clearSelection())
-        self.ui.btnMovUp.pressed.connect(lambda: self.__moveItems(1))
-        self.ui.btnMovDwn.pressed.connect(lambda: self.__moveItems(-1))
+        self.ui.btnMovUp.pressed.connect(lambda: self.__moveItems(-1))
+        self.ui.btnMovDwn.pressed.connect(lambda: self.__moveItems(1))
         self.ui.btnShuffle.pressed.connect(lambda: self.__shuffle())
 
         self.ui.checkSetTrack.pressed.connect(lambda: self.ui.spinTrack.setEnabled(not self.ui.checkSetTrack.isChecked()))
